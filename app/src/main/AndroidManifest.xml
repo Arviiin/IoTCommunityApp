@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.archer.start" >
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name="com.archer.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/appicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.archer.start.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.archer.start.ForumActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.MainActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.SettingPage"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.AboutActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.LoginActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.ContentActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.ContentDetailActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.AssistanActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.start.RegisterActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.note.NoteActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.note.AddNoteActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name="com.archer.note.NoteDetailActivity"
+            android:label="archer">
+
+        </activity>
+        <activity
+            android:name=".NewsActivity"
+            android:label="archer">
+        </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:label="archer">
+        </activity>
+        <activity
+            android:name="com.archer.start.WebActivity"
+            android:label="archer">
+        </activity>
+        <activity
+            android:name="com.archer.start.AddForumItem"
+            android:label="archer">
+        </activity>
+    </application>
+
+</manifest>

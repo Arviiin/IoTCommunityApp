@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F3D4C"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+      >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="search"
+             />
+
+        <RelativeLayout
+            android:id="@+id/left_menu01"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#2A3744">
+            <ImageView
+                android:id="@+id/menu_img01"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:src="@mipmap/user"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/menu_txt01"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/menu_img01"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:text="个人资料" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/left_menu05"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="openNotePadPage"
+
+            android:background="#2F3D4C">
+
+            <ImageView
+                android:id="@+id/menu_img05"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/pen"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/menu_txt05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/menu_img05"
+                android:text="学习笔记"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/left_menu06"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#2A3744"
+            android:onClick="openZhuShouPage">
+
+            <ImageView
+                android:id="@+id/menu_img06"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:onClick="openZhuShouPage"
+
+                android:src="@mipmap/bag"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/menu_txt06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/menu_img06"
+                android:text="智能助手"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:onClick="openMenu02"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#2F3D4C">
+
+                <ImageView
+                    android:id="@+id/menu_img02"
+                    android:layout_centerVertical="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/checklist" />
+
+                <TextView
+                    android:id="@+id/menu_txt02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/menu_img02"
+                    android:text="网易科技"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="openMenu03"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#2A3744">
+
+                <ImageView
+                    android:id="@+id/menu_img03"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/check" />
+
+                <TextView
+                    android:id="@+id/menu_txt03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/menu_img03"
+                    android:text="创意作品"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="openMenu04"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#2F3D4C"
+                >
+
+                <ImageView
+                    android:id="@+id/menu_img04"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/chart"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/menu_txt04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/menu_img04"
+                    android:text="我的分享"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="10dp"/>
+            </RelativeLayout>
+        <RelativeLayout
+            android:onClick="openMenu07"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#2A3744"
+            >
+
+        <ImageView
+            android:id="@+id/menu_img07"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/controls"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/menu_txt07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="25sp"
+            android:layout_toRightOf="@+id/menu_img07"
+            android:text="学习论坛"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="openMenu08"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#2F3D4C"
+            >
+
+            <ImageView
+                android:id="@+id/menu_img08"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/baidu"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/menu_txt08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/menu_img08"
+                android:text="百度科技"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="openMenu09"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#2A3744"
+            >
+
+            <ImageView
+                android:id="@+id/menu_img09"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/baidu1"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/menu_txt09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/menu_img09"
+                android:text="百度百家"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

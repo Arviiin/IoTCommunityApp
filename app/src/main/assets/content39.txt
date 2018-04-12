@@ -1,0 +1,9 @@
+2.Java的组成与体系
+组成
+Java由四方面组成：
+●Java编程语言，即语法。
+●Java文件格式，即各种文件夹、文件的后缀。
+●Java虚拟机(JVM)，即处理*.class文件的解释器。
+●Java应用程序接口(Java API)。
+体系
+    Java分为三个体系，分别为Java SE（J2SE，Java2 Platform Standard Edition，标准版），JavaEE（J2EE，Java 2 Platform, Enterprise Edition，企业版），Java ME（J2ME，Java 2 Platform Micro Edition，微型版）。

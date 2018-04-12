@@ -1,0 +1,54 @@
+3.Android系统架构与结构
+（1）系统结构
+    Android的系统架构和其操作系统一样，采用了分层的架构。
+ Android结构
+    从架构图看，Android分为四个层，从高层到低层分别是应用程序层、应用程序框架层、系统运行库层和Linux内核层。
+应用程序
+    Android会同一系列核心应用程序包一起发布，该应用程序包包括客户端，SMS短消息程序，日历，地图，浏览器，联系人管理程序等。所有的应用程序都是使用JAVA语言编写的。
+应用程序框架
+    开发人员也可以完全访问核心应用程序所使用的API框架。该应用程序的架构设计简化了组件的重用;任何一个应用程序都可以发布它的功能块并且任何其它的应用程序都可以使用其所发布的功能块（不过得遵循框架的安全性）。同样，该应用程序重用机制也使用户可以方便的替换程序组件。
+    隐藏在每个应用后面的是一系列的服务和系统, 其中包括;
+    丰富而又可扩展的视图（Views)，可以用来构建应用程序， 它包括列表（Lists)，网格（Grids)，文本框（Text boxes)，按钮（Buttons)， 甚至可嵌入的web浏览器。
+    内容提供器（Content Providers)使得应用程序可以访问另一个应用程序的数据（如联系人数据库)， 或者共享它们自己的数据
+    资源管理器（Resource Manager)提供 非代码资源的访问，如本地字符串，图形，和布局文件（Layout files )。
+    通知管理器 （Notification Manager) 使得应用程序可以在状态栏中显示自定义的提示信息。
+    活动管理器（ Activity Manager) 用来管理应用程序生命周期并提供常用的导航回退功能。
+    系统运行库
+    Android 包含一些C/C++库，这些库能被Android系统中不同的组件使用。它们通过 Android 应用程序框架为开发者提供服务。以下是一些核心库：
+    * 系统 C 库 - 一个从BSD继承来的标准C系统函数库 Libc )， 它是专门为基于Embedded linux的设备定制的。
+    * 媒体库 - 基于PacketVideo OpenCORE;该库支持多种常用的音频、视频格式回放和录制，同时支持静态图像文件。编码格式包括MPEG4, H.264, MP3, AAC, AMR, JPG, PNG 。
+    * Surface Manager - 对显示子系统的管理，并且为多个应用程序提 供了2D和3D图层的无缝融合。
+    * LibWebCore - 一个最新的web浏览器引擎用，支持Android浏览器和一个可嵌入的web视图。
+（2）系统结构
+    系统内核
+    Android 是运行于Linux kernel之上，但并不是GNU/Linux。因为在一般GNU/Linux 里支持的功能，Android 大都没有支持，包括Cairo、X11、Alsa、FFmpeg、GTK、Pango及Glibc等都被移除掉了。Android又以Bionic 取代Glibc、以Skia 取代Cairo、再以opencore取代FFmpeg等等。Android 为了达到商业应用，必须移除被GNU GPL授权证所约束的部份，例如Android将驱动程序移到 Userspace，使得Linux driver 与 Linux kernel彻底分开。Bionic/Libc/Kernel/ 并非标准的Kernel header files。Android 的 Kernel header 是利用工具由 Linux Kernel header 所产生的，这样做是为了保留常数、数据结构与宏。
+    Android 的 Linux kernel控制包括安全（Security），存储器管理（Memory Management），程序管理（Process Management），网络堆栈（Network Stack），驱动程序模型（Driver Model）等。下载Android源码之前，先要安装其构建工具 Repo来初始化源码。Repo 是 Android 用来辅助Git工作的一个工具。
+后缀简介
+[9]  APK是安卓应用的后缀，是AndroidPackage的缩写，即Android安装包(apk)。APK是类似Symbian Sis或Sisx的文件格式。通过将APK文件直接传到Android模拟器或Android手机中执行即可安装。apk文件和sis一样，把android sdk编译的工程打包成一个安装程序文件，格式为apk。 APK文件其实是zip格式，但后缀名被修改为apk，通过UnZip解压后，可以看到Dex文件，Dex是Dalvik VM executes的全称，即Android Dalvik执行程序，并非Java ME的字节码而是Dalvik字节码。
+[9]  APK文件结构
+一个APK文件结构为：
+    1. META-INF\ （注：Jar文件中常可以看到）；
+    2. res\ (注：存放资源文件的目录) ；
+    3. AndroidManifest.xml (注：程序全局配置文件) ；
+    4. classes.dex （注：Dalvik字节码）；
+    5. resources.arsc (注：编译后的二进制资源文件)。
+    总结下我们发现Android在运行一个程序时首先需要UnZip，然后类似Symbian那样直接执行安装，和Windows Mobile中的PE文件有区别，这样做对于程序的保密性和可靠性不是很高，通过dexdump命令可以反编译，但这样做符合发展规律，微软的 Windows Gadgets或者说WPF也采用了这种构架方式。
+    在Android平台中dalvik vm的执行文件被打包为apk格式，最终运行时加载器会解压然后获取编译后androidmanifest.xml文件中的permission分支相关的安全访问，但仍然存在很多安全限制，如果你将apk文件传到/system/app文件夹下会发现执行是不受限制的。
+    最终我们平时安装的文件可能不是这个文件夹，而在android rom中系统的apk文件默认会放入这个文件夹，它们拥有着root权限。
+    硬件抽像层
+    Android 的HAL（硬件抽像层）是能以封闭源码形式提供硬件驱动模块。HAL 的目的是为了把 Android framework 与 Linux kernel 隔开，让 Android 不至过度依赖 Linux kernel，以达成 Kernel independent 的概念，也让 Android framework 的开发能在不考量驱动程序实现的前提下进行发展。
+    HAL stub 是一种代理人（Proxy）的概念，Stub 是以 *.so 档的形式存在。Stub 向 HAL“提供”操作函数（Operations），并由 Android runtime 向 HAL 取得 Stub 的Operations，再 Callback 这些操作函数。HAL 里包含了许多的 Stub（代理人）。Runtime 只要说明“类型”，即 Module ID，就可以取得操作函数。
+中介软件
+    操作系统与应用程序的沟通桥梁，应用分为两层：函数层（Library）和虚拟机（Virtual Machine）。 Bionic是 Android 改良libc的版本。Android 同时包含了Webkit，所谓的Webkit 就是Apple Safari 浏览器背后的引擎。Surface flinger 是就2D或3D的内容显示到屏幕上。Android使用工具链（Toolchain)为Google自制的Bionic Libc。
+    Android采用OpenCORE作为基础多媒体框架。Open CORE可分7大块：PVPlayer、PVAuthor、Codec、PacketVideo Multimedia Framework（PVMF)、Operating System Compatibility Library（OSCL)、Common、OpenMAX。
+    Android 使用skia 为核心图形引擎，搭配OpenGL/ES。skia与Linux Cairo功能相当，但相较于Linux Cairo, skia 功能还只是雏形的。2005年Skia公司被Google收购，2007年初，Skia GL源码被公开，Skia 也是Google Chrome 的图形引擎。
+    Android的多媒体数据库采用SQLite数据库系统。数据库又分为共用数据库及私用数据库。用户可通过ContentResolver类（Column）取得共用数据库。
+    Android的中间层多以Java 实现，并且采用特殊的Dalvik 虚拟机（Dalvik Virtual Machine）。Dalvik虚拟机是一种“暂存器型态”（Register Based）的Java虚拟机，变量皆存放于暂存器中，虚拟机的指令相对减少。
+    Dalvik虚拟机可以有多个实例（Instance）， 每个Android应用程序都用一个自属的Dalvik虚拟机来运行，让系统在运行程序时可达到优化。Dalvik 虚拟机并非运行Java字节码（Bytecode），而是运行一种称为.dex格式的文件。
+    安全权限机制
+    Android本身是一个权限分立的操作系统。在这类操作系统中，每个应用都以唯一的一个系统识别身份运行（Linux用户ID与群组ID）。系统的各部分也分别使用各自独立的识别方式。Linux就是这样将应用与应用，应用与系统隔离开。
+    系统更多的安全功能通过权限机制提供。权限可以限制某个特定进程的特定操作，也可以限制每个URI权限对特定数据段的访问。 
+    Android安全架构的核心设计思想是，在默认设置下，所有应用都没有权限对其他应用、系统或用户进行较大影响的操作。这其中包括读写用户隐私数据（联系人或电子邮件），读写其他应用文件，访问网络或阻止设备待机等。
+    安装应用时，在检查程序签名提及的权限，且经过用户确认后，软件包安装器会给予应用权限。从用户角度看，一款Android应用通常会要求如下的权限：
+    拨打电话、发送短信或彩信、修改/删除SD卡上的内容、读取联系人的信息、读取日程信的息，写入日程数据、读取电话状态或识别码、精确的（基于GPS）地理位置、模糊的（基于网络获取）地理位置、创建蓝牙连接、对互联网的完全访问、查看网络状态，查看WiFi状态、避免手机待机、修改系统全局设置、读取同步设定、开机自启动、重启其他应用、终止运行中的应用、设定偏好应用、震动控制、拍摄图片等。
+    一款应用应该根据自身提供的功能，要求合理的权限。用户也可以分析一款应用所需权限，从而简单判定这款应用是否安全。如一款应用是不带广告的单机版，也没有任何附加的内容需要下载，那么它要求访问网络的权限就比较可疑。

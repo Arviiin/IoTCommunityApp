@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+      <TextView 
+        android:id="@+id/receive_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        />
+
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="50dp" 
+          android:layout_gravity="right">
+
+          <TextView
+              android:id="@+id/textView6"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@mipmap/chat_my_bg"
+              android:gravity="center|left"
+              android:singleLine="false"
+              android:padding="10dip"
+		      android:paddingRight="60dip"
+		      android:maxWidth="250dip"/>
+          
+          <ImageView
+              android:id="@+id/imageview02"
+              android:layout_width="wrap_content"
+              android:layout_toRightOf="@id/textView6"
+              android:layout_height="wrap_content"
+              android:background="@mipmap/default_user_head_img" />
+      </RelativeLayout>
+
+</LinearLayout>
